@@ -1,0 +1,34 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "client-install": "npm install --prefix employee",
+    "build": "concurrently \"cd employee && npm run build\" \"npm build \"",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "client": "cd ./employee && npm start ",
+    "server-prod": "node index.js",
+    "server": "nodemon index.js",
+    "start": "node index.js",
+    "start:dev": "concurrently --kill-others  \"npm run employee\" \"npm run server\" ",
+    "heroku-postbuild":"NPM_CONFIG_PRODUCTION=false npm install --prefix employee && npm run build --prefix employee"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mongoose": "^6.7.2",
+    "mongoose-auto-increment": "^5.0.1",
+    "nodemon": "^2.0.20",
+    "react-datepicker": "^4.8.0"
+  },
+  "engines": {
+    "node": ">= 0.8.14",
+    "npm":"6.14.7"
+  }
+}
